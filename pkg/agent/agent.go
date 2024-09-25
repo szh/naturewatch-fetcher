@@ -41,7 +41,7 @@ func doFetch() error {
 		return err
 	}
 
-	log.Printf("Listed %d vidoes", len(photos))
+	log.Printf("Listed %d vidoes", len(videos))
 
 	for _, video := range videos {
 		err := processFile("videos/" + video)
