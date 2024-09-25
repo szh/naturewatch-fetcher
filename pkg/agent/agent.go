@@ -16,6 +16,13 @@ func Start() {
 			log.Printf("[ERROR] %v", err)
 		}
 
+		// Check if the fetch interval is 0 or negative, which means we should
+		// exit after the first fetch
+		if util.Config.FetchIntervalSeconds <= 0 {
+			log.Printf("Fetch interval is 0, exiting")
+			return
+		}
+
 		// Sleep the configured number of seconds
 		time.Sleep(time.Duration(util.Config.FetchIntervalSeconds) * time.Second)
 	}

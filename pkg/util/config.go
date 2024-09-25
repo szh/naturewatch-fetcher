@@ -42,11 +42,6 @@ func ValidateConfig() error {
 		return fmt.Errorf("Invalid NatureWatchURL: %v", err)
 	}
 
-	// Ensure FetchIntervalSeconds is a positive integer
-	if Config.FetchIntervalSeconds <= 0 {
-		return fmt.Errorf("Invalid FetchIntervalSeconds: %v", Config.FetchIntervalSeconds)
-	}
-
 	// Ensure OutputPath is a valid directory and exists
 	if _, err := os.Stat(Config.OutputPath); os.IsNotExist(err) {
 		return fmt.Errorf("OutputPath does not exist: %v", Config.OutputPath)
