@@ -9,9 +9,16 @@ import (
 )
 
 type ConfigStruct struct {
-	NatureWatchURL       string `mapstructure:"NATUREWATCH_URL"`
-	FetchIntervalSeconds int    `mapstructure:"FETCH_INTERVAL_SECONDS"`
-	OutputPath           string `mapstructure:"OUTPUT_PATH"`
+	// The URL of the NatureWatch server. This can be an IP address or a hostname
+	// but must include the protocol (generally "http://")
+	NatureWatchURL string `mapstructure:"NATUREWATCH_URL"`
+	// The number of seconds to wait between fetches. If this is 0 or negative,
+	// the process will exit after the first fetch.
+	FetchIntervalSeconds int `mapstructure:"FETCH_INTERVAL_SECONDS"`
+	// The output path on the local filesystem where photos and videos will be saved.
+	// This path must already exist. However, the photos and videos subdirectories
+	// will be created if they do not exist.
+	OutputPath string `mapstructure:"OUTPUT_PATH"`
 }
 
 var Config ConfigStruct
