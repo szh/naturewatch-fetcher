@@ -1,0 +1,5 @@
+version: 1
+
+goos: linux
+goarch: arm64
+binary: naturewatch-fetcher
